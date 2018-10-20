@@ -11,6 +11,7 @@ $ ssh -A -J <user>@<bastion_IP> <someinternalhost_IP>
 ```
 
 **Дополнительное задание**
+
 Подключение к целевому хосту с использованием алиаса:
 ```sh
 $ cat <<TXT > ~/.ssh/config
