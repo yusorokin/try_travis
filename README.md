@@ -138,3 +138,18 @@ resource "google_compute_project_metadata_item" "default" {
     Скрин https://drive.google.com/open?id=1mlX2D0ERR0NKqBDCAqGqPiyVkOmsMppk
   Возможно ничего страшного в этом и нет, но выглядит странно.
 
+### Задание с **
+
+### Создание балансировщика веб-сервера
+
+Для создания балансировщика потребовалось:
+* Включить инстанс веб-сервера в группу инстансов google_compute_instance_group;
+* Настроить для группы инстансов перенаправление трафика на порт 9292;
+* Создать google_compute_health_check по порту tcp-9292 определения работающего инстанса;
+* Создать google_compute_backend_service, который перенаправляет трафик на инстанс группы google_compute_instance_group в зависимости от состояния google_compute_health_check;
+* Обозначить в google_compute_backend_service именованый порт port_name = "puma-9292" для перенаправления HTTP-трафика на tcp-9292, который описан в google_compute_instance_groupж
+* Создать правило google_compute_url_map для перенаправления всего трафика на google_compute_backend_service;
+* Создать google_compute_target_http_proxy, который перенаправляет трафик исходя из правил, заданных в google_compute_url_map;
+* Создать глобальное правило перенаправления трафика (google_compute_global_forwarding_rule) по HTTP, которому и присваивается внешний ip-адрес и которое перенаправляет трафик на google_compute_target_http_proxy.
+
+Для шаблона инастанса была создана переменная count, в которой определяется количество создаваемых инстансов.
