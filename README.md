@@ -81,7 +81,7 @@ gcloud compute firewall-rules create default-puma-server \
 * Шаблон дополнен параметрами и файлом параметров.
 
 ### Задание со *
-* Создан шаблон baked образа immutable.json на основе базового образа, созданного в основоном задании;
+* Создан шаблон baked образа immutable.json на основе базового образа, созданного в основном задании;
 * В шаблоне использован измененный скрипт deploy.sh и новый скрипт systemd_service.sh, который создает файл сервиса puma и запускает его через systemd;
 * Создан скрипт для поднятия инстанса ВМ create-redditvm.sh из созданного образа семейства reddit-full.
 
@@ -89,7 +89,7 @@ gcloud compute firewall-rules create default-puma-server \
 ## Homework 6
 
 ### Задание со *
-Нашел как минимум два способа добваления ключей в проект:
+Нашел как минимум два способа добавления ключей в проект:
 1. Команда:
     ```sh
     resource "google_compute_project_metadata_item" "default" {
@@ -117,7 +117,7 @@ resource "google_compute_project_metadata_item" "default" {
 }
 ```
 
-Добавил ключ пользователя appuser_web череез веб-интерфейс. Затем применил `terraform apply`.
+Добавил ключ пользователя appuser_web через веб-интерфейс. Затем применил `terraform apply`.
 
 Какие проблемы выявил:
 * *Очевидная:* Ключ appuser_web удалился;
@@ -147,7 +147,7 @@ resource "google_compute_project_metadata_item" "default" {
 * Настроить для группы инстансов перенаправление трафика на порт 9292;
 * Создать google_compute_health_check по порту tcp-9292 определения работающего инстанса;
 * Создать google_compute_backend_service, который перенаправляет трафик на инстанс группы google_compute_instance_group в зависимости от состояния google_compute_health_check;
-* Обозначить в google_compute_backend_service именованый порт port_name = "puma-9292" для перенаправления HTTP-трафика на tcp-9292, который описан в google_compute_instance_groupж
+* Обозначить в google_compute_backend_service именованый порт port_name = "puma-9292" для перенаправления HTTP-трафика на tcp-9292, который описан в google_compute_instance_group;
 * Создать правило google_compute_url_map для перенаправления всего трафика на google_compute_backend_service;
 * Создать google_compute_target_http_proxy, который перенаправляет трафик исходя из правил, заданных в google_compute_url_map;
 * Создать глобальное правило перенаправления трафика (google_compute_global_forwarding_rule) по HTTP, которому и присваивается внешний ip-адрес и которое перенаправляет трафик на google_compute_target_http_proxy.
