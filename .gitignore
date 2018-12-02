@@ -21,3 +21,12 @@ vault.key
 .pytest_cache
 
 py_env_ansible/
+
+*.log
+*.tar
+*.pub
+credentials.json
+google_compute_engine
+
+db_role_env
+**/__pycache__/

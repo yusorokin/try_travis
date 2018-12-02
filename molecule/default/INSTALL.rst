@@ -1,17 +1,16 @@
 *******
-Vagrant driver installation guide
+Google Cloud Engine driver installation guide
 *******
 
 Requirements
 ============
 
-* Vagrant
-* Virtualbox, Parallels, VMware Fusion, VMware Workstation or VMware Desktop
-* python-vagrant
+* A GCE credentials rc file
+* apache-libcloud
 
 Install
 =======
 
 .. code-block:: bash
 
-    $ sudo pip install python-vagrant
+    $ sudo pip install apache-libcloud
