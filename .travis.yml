@@ -8,7 +8,7 @@ before_install:
   - mv google_compute_engine /home/travis/.ssh/
   - chmod 0600 /home/travis/.ssh/google_compute_engine
 install:
-  - pip install ansible==2.3.0 molecule apache-libcloud
+  - pip install ansible>=2.4 molecule apache-libcloud
 script:
   - molecule create
   - molecule converge
