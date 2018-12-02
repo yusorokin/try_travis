@@ -1,0 +1,23 @@
+INFRA.code-workspace
+variables.json
+*.old
+
+*.tfstate
+*.tfstate.*.backup
+*.tfstate.backup
+*.tfvars
+.terraform/
+
+*.retry
+jdauphant.nginx
+vault.key
+
+# Vagrant & molecule
+.vagrant/
+*.log
+*.pyc
+.molecule
+.cache
+.pytest_cache
+
+py_env_ansible/
